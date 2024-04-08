@@ -1,0 +1,29 @@
+use newdb;
+
+drop table if exists users;
+drop table if exists profiles;
+
+create table if not exists users (
+id int,
+name varchar(255),
+email varchar(255)
+);
+
+insert into users(id, name, email) values
+(1, 'igor', 'igor@gmail.com'),
+(2, 'arthur', 'artur@gmail.com');
+
+create table if not exists profiles (
+id int primary key auto_increment,
+user_id int,
+birthday int,
+phone int,
+foreign key(user_id) references users(id)
+);
+
+
+
+insert into profiles(user_id, birthday, phone) values
+(1, 12, 8805355),
+(2, 20, 07965415);
+
